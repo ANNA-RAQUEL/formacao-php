@@ -1,15 +1,12 @@
 <?php
 
-//objeto Conta
+namespace Alura\Banco\Modelo\Conta;
+
 class Conta
 {
-    //Atributos
     private Titular $titular;
     private float $saldo;
     private static $numeroDeContas = 0;
-
-
-    // métodos magicos
 
     public function __construct(Titular $titular)
     {
@@ -23,7 +20,6 @@ class Conta
         self::$numeroDeContas--;
     }
 
-    // métodos
 
     public function saca(float $valorASacar): void
     {
