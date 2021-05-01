@@ -2,10 +2,10 @@
 
 namespace Alura\Banco\Modelo;
 
-class Pessoa
+abstract class Pessoa
 {
-    protected $nome;
-    private $cpf;
+    protected string $nome;
+    private Cpf $cpf;
 
     public function __construct(string $nome, CPF $cpf)
     {
