@@ -2,11 +2,12 @@
 
 namespace Alura\Banco\Modelo\Conta;
 
+use Alura\banco\Modelo\Autenticavel;
 use Alura\Banco\Modelo\CPF;
 use Alura\Banco\Modelo\Endereco;
 use Alura\Banco\Modelo\Pessoa;
 
-class Titular extends Pessoa
+class Titular extends Pessoa implements Autenticavel
 {
     private $endereco;
 
@@ -27,6 +28,11 @@ class Titular extends Pessoa
     public function getEndreco(): Endereco
     {
         return $this->endereco;
+    }
+
+    public function podeAutenticar(string $senha): bool
+    {
+        return $senha === 'abcd';
     }
 
 }
