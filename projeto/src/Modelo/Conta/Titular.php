@@ -7,7 +7,7 @@ use Alura\Banco\Modelo\CPF;
 use Alura\Banco\Modelo\Endereco;
 use Alura\Banco\Modelo\Pessoa;
 
-class Titular extends Pessoa implements Autenticavel
+class Titular extends Pessoa 
 {
     private $endereco;
 

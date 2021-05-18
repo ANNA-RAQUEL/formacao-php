@@ -8,30 +8,14 @@ use Alura\Banco\Modelo\Endereco;
 
 require_once 'autoload.php';
 
-$conta = new ContaCorrente(
+$conta = new ContaPoupanca(
     new Titular(
         new CPF('123.456.789-10'),
         'Vinicius Dias',
-        new Endereco('Petropolis', 'bairro Teste', 'Rua lá', '37'),
+        new Endereco('Petrópolis', 'bairro Teste', 'Rua lá', '37')
     )
 );
-
-$contaDois = new ContaPoupanca(
-    new Titular(
-        new CPF('185.456.789-10'),
-        'Anna Dias',
-        new Endereco('lala', 'bairro Teste', 'Rua lá', '37'),
-    )
-);
-
 $conta->deposita(500);
 $conta->saca(100);
-echo $conta->recuperaSaldo() .PHP_EOL;
 
-$contaDois->deposita(500);
-$contaDois->saca(100);
-echo $contaDois->recuperaSaldo() .PHP_EOL;
-
-
-$conta->transfere(50, $contaDois);
-echo $contaDois->recuperaSaldo();
+echo $conta->recuperaSaldo();

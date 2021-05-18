@@ -6,7 +6,7 @@ abstract class Conta
 {
     private Titular $titular;
     protected float $saldo;
-    private static $numeroDeContas = 0;
+    private static int $numeroDeContas = 0;
 
     public function __construct(Titular $titular)
     {
@@ -20,15 +20,12 @@ abstract class Conta
         self::$numeroDeContas--;
     }
     
-
-
     public function saca(float $valorASacar): void
     {
         $tarifaSaque = $valorASacar * $this->percentualTarifa();
         $valorSaque = $valorASacar + $tarifaSaque;
         if ($valorSaque > $this->saldo) {
-            echo "Saldo indisponível";
-            return;
+            throw new SaldoInsuficienteException($valorASacar, $this->saldo);
         }
 
         $this->saldo -= $valorSaque;
